@@ -1,0 +1,5 @@
+Install-Package NuGet.CommandLine
+
+dotnet pack -c Release
+
+nuget add '.\Nik.ApiVersioning\bin\Release\Nik.ApiVersioning.1.0.0.nupkg' -source 'C:\Users\ehsan.faramarzi\OneDrive\Software Development\nik-nuget-package-source'
