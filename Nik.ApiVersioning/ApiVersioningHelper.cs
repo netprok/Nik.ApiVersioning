@@ -2,15 +2,15 @@
 
 public static class ApiVersioningHelper
 {
-    public static void UseAppVersioning(WebApplicationBuilder builder)
+    public static void UseAppVersioning(this IServiceCollection services)
     {
-        builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-        builder.Services.AddSwaggerGen(options =>
+        services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+        services.AddSwaggerGen(options =>
         {
             options.OperationFilter<SwaggerDefaultValues>();
         });
 
-        builder.Services
+        services
             .AddApiVersioning(options =>
             {
                 options.AssumeDefaultVersionWhenUnspecified = true;
@@ -23,7 +23,7 @@ public static class ApiVersioningHelper
             });
     }
 
-    public static void UseSwaggerUi(WebApplication app)
+    public static void UseSwaggerUi(this WebApplication app)
     {
         if (app.Environment.IsDevelopment())
         {
