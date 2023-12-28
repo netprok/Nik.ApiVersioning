@@ -2,7 +2,7 @@
 
 public static class ApiVersioningHelper
 {
-    public static void UseAppVersioning(this IServiceCollection services)
+    public static IServiceCollection UseAppVersioning(this IServiceCollection services)
     {
         services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
         services.AddSwaggerGen(options =>
@@ -21,6 +21,8 @@ public static class ApiVersioningHelper
                 options.GroupNameFormat = "'v'VVV";
                 options.SubstituteApiVersionInUrl = true;
             });
+
+        return services;
     }
 
     public static void UseSwaggerUi(this WebApplication app)
