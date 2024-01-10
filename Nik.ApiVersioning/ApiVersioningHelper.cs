@@ -2,7 +2,7 @@
 
 public static class ApiVersioningHelper
 {
-    public static IServiceCollection UseAppVersioning(this IServiceCollection services)
+    public static IServiceCollection AddNikApiVersioning(this IServiceCollection services)
     {
         services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
         services.AddSwaggerGen(options =>
@@ -25,7 +25,7 @@ public static class ApiVersioningHelper
         return services;
     }
 
-    public static void UseSwaggerUi(this WebApplication app)
+    public static void AddNikSwaggerUi(this WebApplication app)
     {
         if (app.Environment.IsDevelopment())
         {
@@ -34,7 +34,6 @@ public static class ApiVersioningHelper
             {
                 var descriptions = app.DescribeApiVersions();
 
-                // Build a swagger endpoint for each discovered API version
                 foreach (var description in descriptions)
                 {
                     var url = $"/swagger/{description.GroupName}/swagger.json";
