@@ -1,6 +1,6 @@
 ﻿namespace Nik.ApiVersioning;
 
-public static class ApiVersioningHelper
+public static class ServicesExtensions
 {
     public static IServiceCollection AddNikApiVersioning(this IServiceCollection services)
     {
@@ -25,7 +25,7 @@ public static class ApiVersioningHelper
         return services;
     }
 
-    public static void AddNikSwaggerUi(this WebApplication app)
+    public static void UseNikSwaggerUi(this WebApplication app)
     {
         if (app.Environment.IsDevelopment())
         {
