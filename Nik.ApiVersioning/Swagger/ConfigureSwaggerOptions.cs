@@ -1,4 +1,6 @@
-﻿public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
+﻿namespace Nik.ApiVersioning.Swagger;
+
+public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
 {
     private readonly IApiVersionDescriptionProvider _provider;
 

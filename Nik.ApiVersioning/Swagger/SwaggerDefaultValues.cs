@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-
-using System.Text.Json;
+﻿namespace Nik.ApiVersioning.Swagger;
 
 public class SwaggerDefaultValues : IOperationFilter
 {
